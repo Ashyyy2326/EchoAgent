@@ -1,0 +1,268 @@
+{
+  "timestamp": "2026-10-14T12:33:51.568800",
+  "total": 8,
+  "passed": 0,
+  "pass_rate": 0.0,
+  "avg_scores": {
+    "relevance": 0.5,
+    "accuracy": 0.5,
+    "completeness": 0.5,
+    "helpfulness": 0.5,
+    "intent_accuracy": 0.7273
+  },
+  "regressions": [],
+  "recommendations": [
+    "意图识别准确率 < 90%：增加 Few-shot 示例，或对低 F1 的意图类别补充训练数据",
+    "相关性偏低：检查 Agent system_prompt，确保 Agent 聚焦于用户问题",
+    "完整性偏低：Agent 可能过早结束回答，考虑在 prompt 中要求提供完整解决方案",
+    "有用性偏低：回答可能过于抽象，考虑要求 Agent 提供具体操作步骤"
+  ],
+  "results": [
+    {
+      "test_id": "intent_recognition",
+      "passed": false,
+      "scores": {
+        "accuracy": 0.7273,
+        "macro_f1": 0.5714
+      },
+      "detail": "准确率 72.7%，Macro-F1 0.571",
+      "metadata": {
+        "total": 11,
+        "correct": 8,
+        "cases": [
+          {
+            "message": "我的订单什么时候到？",
+            "expected": "logistics",
+            "predicted": "query",
+            "confidence": 0.6622661785325218,
+            "reasoning": "LLM 失败"
+          },
+          {
+            "message": "帮我取消订单",
+            "expected": "request",
+            "predicted": "request",
+            "confidence": 0.9999999999999999,
+            "reasoning": "LLM 失败"
+          },
+          {
+            "message": "你们服务太差了！",
+            "expected": "complaint",
+            "predicted": "complaint",
+            "confidence": 0.8451542547285166,
+            "reasoning": "LLM 失败"
+          },
+          {
+            "message": "应用一直报500错误",
+            "expected": "technical_crash",
+            "predicted": "technical_crash",
+            "confidence": 0.6139406135149205,
+            "reasoning": "LLM 失败"
+          },
+          {
+            "message": "为什么扣了两次款？",
+            "expected": "payment_issue",
+            "predicted": "billing",
+            "confidence": 1.0,
+            "reasoning": "LLM 失败"
+          },
+          {
+            "message": "我要投诉，转人工！",
+            "expected": "human_handoff",
+            "predicted": "escalation",
+            "confidence": 0.6227523687795278,
+            "reasoning": "LLM 失败"
+          },
+          {
+            "message": "你好",
+            "expected": "greeting",
+            "predicted": "greeting",
+            "confidence": 1.0000000000000002,
+            "reasoning": "LLM 失败"
+          },
+          {
+            "message": "修改我的邮箱地址",
+            "expected": "account",
+            "predicted": "account",
+            "confidence": 0.41702882811414954,
+            "reasoning": "LLM 失败"
+          },
+          {
+            "message": "帮我开发票",
+            "expected": "invoice",
+            "predicted": "invoice",
+            "confidence": 1.0000000000000002,
+            "reasoning": "LLM 失败"
+          },
+          {
+            "message": "退款多久到账？",
+            "expected": "refund",
+            "predicted": "refund",
+            "confidence": 1.0000000000000002,
+            "reasoning": "LLM 失败"
+          },
+          {
+            "message": "登录一直报401",
+            "expected": "technical_login",
+            "predicted": "technical_login",
+            "confidence": 1.0000000000000002,
+            "reasoning": "LLM 失败"
+          }
+        ]
+      }
+    },
+    {
+      "test_id": "dialog_0",
+      "passed": false,
+      "scores": {
+        "relevance": 0.5,
+        "accuracy": 0.5,
+        "completeness": 0.5,
+        "helpfulness": 0.5,
+        "overall": 0.5
+      },
+      "detail": "Q: 我的订单 #12345 还没到，已经超时了... → 综合评分 0.500",
+      "metadata": {
+        "question": "我的订单 #12345 还没到，已经超时了",
+        "response": "抱歉，处理您的请求时出现问题，请稍后重试。",
+        "agent_type": "general",
+        "intent": "query",
+        "turn": 0,
+        "conv_id": "eval_0",
+        "judge_failed": true,
+        "judge_error": "Error code: 404"
+      }
+    },
+    {
+      "test_id": "dialog_1",
+      "passed": false,
+      "scores": {
+        "relevance": 0.5,
+        "accuracy": 0.5,
+        "completeness": 0.5,
+        "helpfulness": 0.5,
+        "overall": 0.5
+      },
+      "detail": "Q: 应用登录一直报错 401... → 综合评分 0.500",
+      "metadata": {
+        "question": "应用登录一直报错 401",
+        "response": "抱歉，处理您的请求时出现问题，请稍后重试。",
+        "agent_type": "general",
+        "intent": "technical_login",
+        "turn": 0,
+        "conv_id": "eval_1",
+        "judge_failed": true,
+        "judge_error": "Error code: 404"
+      }
+    },
+    {
+      "test_id": "dialog_2",
+      "passed": false,
+      "scores": {
+        "relevance": 0.5,
+        "accuracy": 0.5,
+        "completeness": 0.5,
+        "helpfulness": 0.5,
+        "overall": 0.5
+      },
+      "detail": "Q: 为什么这个月多扣了 50 块钱？... → 综合评分 0.500",
+      "metadata": {
+        "question": "为什么这个月多扣了 50 块钱？",
+        "response": "抱歉，处理您的请求时出现问题，请稍后重试。",
+        "agent_type": "general",
+        "intent": "payment_issue",
+        "turn": 0,
+        "conv_id": "eval_2",
+        "judge_failed": true,
+        "judge_error": "Error code: 404"
+      }
+    },
+    {
+      "test_id": "dialog_3",
+      "passed": false,
+      "scores": {
+        "relevance": 0.5,
+        "accuracy": 0.5,
+        "completeness": 0.5,
+        "helpfulness": 0.5,
+        "overall": 0.5
+      },
+      "detail": "Q: 帮我把收货地址改成北京市朝阳区... → 综合评分 0.500",
+      "metadata": {
+        "question": "帮我把收货地址改成北京市朝阳区",
+        "response": "抱歉，处理您的请求时出现问题，请稍后重试。",
+        "agent_type": "general",
+        "intent": "request",
+        "turn": 0,
+        "conv_id": "eval_3",
+        "judge_failed": true,
+        "judge_error": "Error code: 404"
+      }
+    },
+    {
+      "test_id": "dialog_4_turn_0",
+      "passed": false,
+      "scores": {
+        "relevance": 0.5,
+        "accuracy": 0.5,
+        "completeness": 0.5,
+        "helpfulness": 0.5,
+        "overall": 0.5
+      },
+      "detail": "Q: 你好，我想退款... → 综合评分 0.500",
+      "metadata": {
+        "question": "你好，我想退款",
+        "response": "抱歉，所有 Agent 均处理失败。",
+        "agent_type": "general",
+        "intent": "greeting",
+        "turn": 0,
+        "conv_id": "eval_4",
+        "judge_failed": true,
+        "judge_error": "Error code: 404"
+      }
+    },
+    {
+      "test_id": "dialog_4_turn_1",
+      "passed": false,
+      "scores": {
+        "relevance": 0.5,
+        "accuracy": 0.5,
+        "completeness": 0.5,
+        "helpfulness": 0.5,
+        "overall": 0.5
+      },
+      "detail": "Q: 订单号是 #12345... → 综合评分 0.500",
+      "metadata": {
+        "question": "订单号是 #12345",
+        "response": "抱歉，处理您的请求时出现问题，请稍后重试。",
+        "agent_type": "general",
+        "intent": "order_status",
+        "turn": 1,
+        "conv_id": "eval_4",
+        "judge_failed": true,
+        "judge_error": "Error code: 404"
+      }
+    },
+    {
+      "test_id": "dialog_4_turn_2",
+      "passed": false,
+      "scores": {
+        "relevance": 0.5,
+        "accuracy": 0.5,
+        "completeness": 0.5,
+        "helpfulness": 0.5,
+        "overall": 0.5
+      },
+      "detail": "Q: 退款多久能到账？... → 综合评分 0.500",
+      "metadata": {
+        "question": "退款多久能到账？",
+        "response": "抱歉，处理您的请求时出现问题，请稍后重试。",
+        "agent_type": "general",
+        "intent": "refund",
+        "turn": 2,
+        "conv_id": "eval_4",
+        "judge_failed": true,
+        "judge_error": "Error code: 404"
+      }
+    }
+  ]
+}
